@@ -1,11 +1,17 @@
-import { useState } from "react";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Landing from "./components/Landing";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1 className="font-mono">this is portfolio v5</h1>
+      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full px-[2vw]">
+        <Navbar />
+        <Landing />
+        <Hero />
+        <Footer />
+      </div>
     </>
   );
 }
