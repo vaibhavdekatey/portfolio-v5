@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import { useState } from "react";
 
 type navLink = {
   key: number;
@@ -18,11 +17,11 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className=" relative min-w-full">
+    <nav className=" relative min-w-full px-[2vw]">
       <div className="min-w-full">
         <div className="h-16 flex items-center justify-between">
           <div>
-            <p className="font-lexend text-neutral-300">
+            <p className="font-lexend text-neutral-300 select-none">
               Web Designer & Developer
             </p>
           </div>
@@ -37,7 +36,7 @@ const Navbar = () => {
               </div>
             ))}
             <button
-              className=" ml-3 sm:mx-1 md:mx-2 mx-3 md:text-sm transition-all ease-in-out border-2 border-transparent bg-neutral-300 text-neutral-800 hover:bg-transparent hover:border-neutral-200 hover:text-neutral-400 rounded-lg p-2 px-3"
+              className=" ml-3 sm:mx-1 md:mx-2 mx-3 md:text-sm transition-all ease-in-out border-2 border-transparent bg-neutral-300 text-neutral-800 hover:bg-transparent hover:border-neutral-200 hover:text-neutral-400 rounded-full p-2 px-3"
               onClick={() => console.log("Resume")}>
               Resume
             </button>
