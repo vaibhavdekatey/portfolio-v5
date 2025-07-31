@@ -1,48 +1,74 @@
 import logo from "../assets/logo.png";
-import type { Service } from "./Hero";
+import type { Service } from "../Hero";
 
-const ExpCard = ({ id, title, description, st1, st2, st3, bgc }: Service) => {
+const ExpCard = ({
+  id,
+  title,
+  description,
+  st1,
+  st2,
+  st3,
+  bgc,
+  bgl,
+}: Service) => {
   return (
-    <div
-      className="font-lexend text-neutral-200 flex flex-row w-full rounded-2xl p-6"
-      style={{ backgroundColor: bgc }}>
-      <div className="min-w-[50vw]">
-        <h1 className="text-[3vw] font-bold text-[#a7a7a7]">{title}</h1>
-      </div>
-      <div className="flex flex-col ">
-        <h2>{description}</h2>
-        <div>
-          <div className="flex flex-row">
-            <p className="font-lexend font-light text-neutral-300 mr-1">01.</p>
-            {st1.map((tech, idx) => (
-              <p className="font-lexend font-light mr-2" key={`st1-${idx}`}>
-                {tech}
+    <div className="relative">
+      <div
+        className="font-lexend text-neutral-200 flex flex-row w-full rounded-2xl p-10 my-4 h-[40vh]"
+        style={{
+          background: `linear-gradient(90deg, ${bgc} 0%, ${bgl} 100%)`,
+        }}>
+        <div className="min-w-[50vw] pr-40 leading-none">
+          <h1 className="text-[4vw] font-bold text-transparent bg-gradient-to-r from-neutral-300 to-neutral-500 bg-clip-text">
+            {title}
+          </h1>
+        </div>
+        <div className="flex flex-col h-full justify-between">
+          <h2 className="font-extralight text-neutral-300 font-lexend text-2xl">
+            {description}
+          </h2>
+          <div className=" text-3xl">
+            <div className="flex flex-row items-center mt-2">
+              <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+                01
               </p>
-            ))}
-          </div>
-          <div className="flex flex-row">
-            <p className="font-lexend font-light text-neutral-300 mr-1">02.</p>
-            {st2.map((tech, idx) => (
-              <p className="font-lexend font-light mr-2" key={`st2-${idx}`}>
-                {tech}
-              </p>
-            ))}
-          </div>
-          <div className="flex flex-row">
-            {st3 && (
-              <>
-                <p className="font-lexend font-light text-neutral-300 mr-1">
-                  03.
+              {st1.map((tech, idx) => (
+                <p className="font-lexend font-thin mr-2" key={`st1-${idx}`}>
+                  {tech}
                 </p>
-                {st3?.map((tech, idx) => (
-                  <p className="font-lexend font-light mr-2" key={`st3-${idx}`}>
-                    {tech}
+              ))}
+            </div>
+            <div className="flex flex-row items-center mt-2">
+              <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+                02
+              </p>
+              {st2.map((tech, idx) => (
+                <p className="font-lexend font-thin mr-2" key={`st2-${idx}`}>
+                  {tech}
+                </p>
+              ))}
+            </div>
+            <div className="flex flex-row items-center mt-2">
+              {st3 && (
+                <>
+                  <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+                    03
                   </p>
-                ))}
-              </>
-            )}
+                  {st3?.map((tech, idx) => (
+                    <p
+                      className="font-lexend font-thin mr-2"
+                      key={`st3-${idx}`}>
+                      {tech}
+                    </p>
+                  ))}
+                </>
+              )}
+            </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-0 right-0 opacity-5 ">
+        <img src={logo} alt="logo" className="h-[20vh] w-auto object-contain" />
       </div>
     </div>
   );

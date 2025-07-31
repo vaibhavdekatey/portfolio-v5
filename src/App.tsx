@@ -1,7 +1,8 @@
-import Footer from "./components/Footer";
+import Footer from "./Footer";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Landing from "./components/Landing";
+import Hero from "./Hero";
+import Landing from "./Landing";
+import Projects from "./Projects";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Navbar />
         <Landing />
         <Hero />
+        <Projects />
         <Footer />
       </div>
     </>

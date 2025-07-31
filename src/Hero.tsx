@@ -1,4 +1,4 @@
-import ExpCard from "./ExpCard";
+import ExpCard from "./components/ExpCard";
 
 export type Service = {
   id: number;
@@ -8,6 +8,7 @@ export type Service = {
   st2: string[];
   st3?: string[];
   bgc: string;
+  bgl: string;
 };
 
 const services: Service[] = [
@@ -20,6 +21,7 @@ const services: Service[] = [
     st2: ["REST API", "Supabase", "Docker"],
     st3: ["Git", "Github"],
     bgc: "#001528",
+    bgl: "#005566",
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ const services: Service[] = [
     st2: ["Figma"],
     st3: ["HTML", "CSS", "Javascript"],
     bgc: "#1b0505",
+    bgl: "#5C0303",
   },
 ];
 
@@ -39,15 +42,19 @@ const Hero = () => {
       <div className="flex flex-col px-[2vw] py-[1vh] w-full">
         <div className="flex flex-col w-full">
           <div className="flex flex-row justify-between ">
-            <p className="font-lexend text-[10vw] leading-none">WHAT I DO</p>
-            <p className="font-lexend text-xl mt-3 ">{"<Services>"}</p>
+            <p className="font-lexend text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-[10vw] leading-none">
+              WHAT I DO
+            </p>
+            <p className="font-lexend text-xl mt-3 text-neutral-800">
+              {"<Services>"}
+            </p>
           </div>
           <div>
             <svg
               className="rotate-135"
               xmlns="http://www.w3.org/2000/svg"
-              width={72}
-              height={72}
+              width={88}
+              height={88}
               viewBox="0 0 24 24">
               <path
                 fill="none"
@@ -70,6 +77,7 @@ const Hero = () => {
                 st2={service.st2}
                 st3={service.st3}
                 bgc={service.bgc}
+                bgl={service.bgl}
               />
             </div>
           ))}
