@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./Hero";
 import Landing from "./Landing";
 import Projects from "./Projects";
+import About from "./About";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Landing />
         <Hero />
         <Projects />
+        <About />
+
         <Footer />
       </div>
     </>

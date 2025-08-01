@@ -3,6 +3,19 @@ import React, { useEffect, useState } from "react";
 const Footer = () => {
   const [time, setTime] = useState("");
 
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:your@email.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(`${message}\n\nFrom: ${email}`)}`;
+
+    window.location.href = mailtoLink;
+  };
+
   function timePadding(i: number): string {
     return i < 10 ? "0" + i : i.toString();
   }
@@ -36,7 +49,37 @@ const Footer = () => {
           say hello, I'll try my best to get back to you! Feel free to mail me.
         </p>
         <div>
-          <form action=""></form>
+          {/* <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              required
+              className="bg-neutral-800 p-2 rounded text-white"
+            />
+            <textarea
+              placeholder="Your message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              className="bg-neutral-800 p-2 rounded text-white"
+              rows={5}
+            />
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="bg-neutral-800 p-2 rounded text-white"
+            />
+            <button
+              type="submit"
+              className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-2 px-4 rounded">
+              Send via Email
+            </button>
+          </form> */}
         </div>
         <div className="w-full bg-neutral-400 p-3 rounded-2xl my-2">
           <p className="text-2xl text-transparent bg-gradient-to-r from-neutral-700 to-neutral-800 bg-clip-text ">
