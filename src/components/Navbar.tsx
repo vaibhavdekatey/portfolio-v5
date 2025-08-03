@@ -1,10 +1,5 @@
 import { useState } from "react";
-
-type navLink = {
-  key: number;
-  title: string;
-  url: string;
-};
+import type { navLink } from "../types";
 
 const navLinks: navLink[] = [
   { key: 1, title: "About", url: "#About" },
@@ -49,7 +44,7 @@ const Navbar = () => {
               Menu
             </button>
             {isMenuOpen && (
-              <div className=" bg-neutral-800 font-lexend p-1 absolute top-16 right-0">
+              <div className=" bg-neutral-800 font-lexend p-1 absolute top-16 right-0 z-50">
                 {navLinks.map((navlink) => (
                   <div
                     key={navlink.key}

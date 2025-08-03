@@ -1,10 +1,6 @@
 import React from "react";
 import texture from "./assets/texture3 (Large).png";
-
-type Tools = {
-  title: string;
-  list: string[];
-};
+import type { Tools } from "./types";
 
 const iconArr = [
   {
@@ -104,8 +100,10 @@ const About = () => {
                 {languageTools.title}
               </div>
               <div className="flex flex-row">
-                {languageTools.list.map((tool) => (
-                  <p className="font-light text-xl text-neutral-400 mr-2 select-none">
+                {languageTools.list.map((tool, idx) => (
+                  <p
+                    key={idx}
+                    className="font-light text-xl text-neutral-400 mr-2 select-none">
                     {tool}
                   </p>
                 ))}
@@ -116,8 +114,10 @@ const About = () => {
                 {frameworks.title}
               </div>
               <div className="flex flex-row">
-                {frameworks.list.map((tool) => (
-                  <p className="font-light text-xl text-neutral-400 mr-2 select-none">
+                {frameworks.list.map((tool, idx) => (
+                  <p
+                    key={idx}
+                    className="font-light text-xl text-neutral-400 mr-2 select-none">
                     {tool}
                   </p>
                 ))}
@@ -125,7 +125,7 @@ const About = () => {
             </div>
             <div className="flex flex-row">
               {iconArr.map((ico) => (
-                <a>
+                <a key={ico.title}>
                   <img src={ico.iconSrc} alt="" className="w-14 h-14 mr-2" />
                 </a>
               ))}

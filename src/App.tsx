@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Landing from "./Landing";
 import Projects from "./Projects";
 import About from "./About";
+import Experience from "./Experience";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         <Landing />
         <Hero />
         <Projects />
+        <Experience />
         <About />
-
         <Footer />
       </div>
     </>

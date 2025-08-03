@@ -1,15 +1,5 @@
 import ExpCard from "./components/ExpCard";
-
-export type Service = {
-  id: number;
-  title: string;
-  description: string;
-  st1: string[];
-  st2: string[];
-  st3?: string[];
-  bgc: string;
-  bgl: string;
-};
+import type { Service } from "./types";
 
 const services: Service[] = [
   {

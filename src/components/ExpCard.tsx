@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-import type { Service } from "../Hero";
+import type { Service } from "../types";
 
 const ExpCard = ({
   id,
@@ -14,7 +14,7 @@ const ExpCard = ({
   return (
     <div className="relative">
       <div
-        className="font-lexend text-neutral-200 flex flex-row w-full rounded-2xl p-10 my-4 h-[40vh]"
+        className="font-lexend text-neutral-200 flex flex-row w-full rounded-2xl p-10 my-4 h-[50vh]"
         style={{
           background: `linear-gradient(90deg, ${bgc} 0%, ${bgl} 100%)`,
         }}>
@@ -24,12 +24,12 @@ const ExpCard = ({
           </h1>
         </div>
         <div className="flex flex-col h-full justify-between">
-          <h2 className="font-extralight text-neutral-300 font-lexend text-2xl">
+          <h2 className="font-extralight text-neutral-300 font-lexend text-[1.5vw]">
             {description}
           </h2>
-          <div className=" text-3xl">
+          <div className=" text-[2vw]">
             <div className="flex flex-row items-center mt-2">
-              <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+              <p className="font-lexend text-[1.5vw] font-extralight text-neutral-400 mr-6">
                 01
               </p>
               {st1.map((tech, idx) => (
@@ -39,7 +39,7 @@ const ExpCard = ({
               ))}
             </div>
             <div className="flex flex-row items-center mt-2">
-              <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+              <p className="font-lexend text-[1.5vw] font-extralight text-neutral-400 mr-6">
                 02
               </p>
               {st2.map((tech, idx) => (
@@ -51,7 +51,7 @@ const ExpCard = ({
             <div className="flex flex-row items-center mt-2">
               {st3 && (
                 <>
-                  <p className="font-lexend text-2xl font-extralight text-neutral-400 mr-6">
+                  <p className="font-lexend text-[1.5vw] font-extralight text-neutral-400 mr-6">
                     03
                   </p>
                   {st3?.map((tech, idx) => (
