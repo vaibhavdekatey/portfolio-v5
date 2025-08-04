@@ -106,6 +106,27 @@ const Projects = () => {
           </motion.div>
         </div>
       </div>
+      <div className="relative h-[120vh] mt-10">
+        {projects.map((project, index) => (
+          <div
+            key={project.id}
+            className={`absolute w-full transition-transform duration-500`}
+            style={{
+              top: `${index * 40}px`, // adjust this value to control overlap depth
+              zIndex: projects.length - index, // top-most card has higher z-index
+            }}>
+            <ProjectCard
+              id={project.id}
+              title={project.title}
+              st1={project.st1}
+              st2={project.st2}
+              st3={project?.st3}
+              imgUrl={project.imgUrl}
+              imgUrlHover={project?.imgUrlHover}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
