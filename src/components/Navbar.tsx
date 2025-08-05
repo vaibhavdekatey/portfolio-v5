@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className=" relative min-w-full px-[2vw]">
+    <nav className=" relative min-w-full px-[6vw] md:px-[2vw]">
       <div className="min-w-full">
         <div className="h-16 flex items-center justify-between">
           <div>

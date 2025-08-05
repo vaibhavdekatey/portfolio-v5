@@ -5,13 +5,23 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 const Landing = () => {
   // const textRef = useRef([]);
   const textRef = useRef<(HTMLSpanElement | null)[]>([]);
-  const name = "VAIBHAV DEKATEY";
+  const lastTextRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const firstName = "CRAFTING EXPERIENCES";
+  const lastName = "PIXEL BY PIXEL";
   const desRef = useRef(null);
   const btnRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(textRef.current, {
+        y: 0,
+        stagger: 0.05,
+        delay: 0.1,
+        duration: 0.5,
+        opacity: 1,
+        ease: "power2.out",
+      });
+      gsap.to(lastTextRef.current, {
         y: 0,
         stagger: 0.05,
         delay: 0.1,
@@ -43,34 +53,49 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="font-lexend relative min-h-[96vh] w-full flex flex-col px-[2vw]">
+    <div className="font-lexend relative min-h-[96vh] w-full flex flex-col px-[6vw] md:px-[2vw]">
       <div className=" overflow-hidden leading-none my-8">
         {/* <span
           ref={textRef}
           className="name leading-none transform translate-y-full bg-gradient-to-r overflow-y-hidden from-neutral-300 to-neutral-400 text-transparent bg-clip-text w-full flex items-center justify-center antialiased select-none whitespace-nowrap text-[10vw]  ">
           VAIBHAV DEKATEY
         </span> */}
-        <div className="flex leading-none text-[9.7vw] z-20">
-          {name.split("").map((char, index) => (
-            <span
-              key={index}
-              ref={(el) => {
-                textRef.current[index] = el;
-              }}
-              className="inline-block translate-y-full bg-gradient-to-r opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
+        <div className="flex flex-col font-koulen leading-none justify-between text-[18vw] md:text-[11vw] z-20">
+          <div className="flex justify-between">
+            {firstName.split("").map((char, index) => (
+              <span
+                key={index}
+                ref={(el) => {
+                  textRef.current[index] = el;
+                }}
+                className="  translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </div>
+          <div className="flex">
+            {lastName.split("").map((char, index) => (
+              <span
+                key={index}
+                ref={(el) => {
+                  lastTextRef.current[index] = el;
+                }}
+                className="  translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="flex flex-col md:w-[50vw] lg:w-[25vw] mt-10 ">
+      <div className="flex flex-col md:w-[50vw] lg:w-[35vw]  ">
         <p
           ref={desRef}
-          className="bg-gradient-to-l from-neutral-300 to-neutral-400 text-2xl text-transparent bg-clip-text select-none mb-8 transform translate-y-full opacity-0 overflow-hidden">
-          Driven by a passion for building intuitive, polished, and memorable
-          digital experiences, I'm eager to explore global opportunities where
-          my work can make a significant impact.
+          className="bg-gradient-to-l from-neutral-300 to-neutral-400 md:text-xl lg:text-2xl text-transparent bg-clip-text select-none mb-8 transform translate-y-full opacity-0 overflow-hidden">
+          I’m <span className="text-neutral-200">Vaibhav Dekatey</span>,
+          passionate about creating intuitive, polished, and memorable digital
+          experiences. Eager to explore global opportunities where my work can
+          make a meaningful impact.
         </p>
         <a
           ref={btnRef}

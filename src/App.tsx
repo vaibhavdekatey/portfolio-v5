@@ -9,7 +9,7 @@ import Experience from "./Experience";
 function App() {
   return (
     <>
-      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full ">
+      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full overflow-x-hidden">
         <Navbar />
         <Landing />
         <Hero />
