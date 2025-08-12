@@ -1,5 +1,6 @@
 import ExpCard from "./components/ExpCard";
 import type { Service } from "./types";
+import { motion } from "motion/react";
 
 const services: Service[] = [
   {
@@ -29,36 +30,63 @@ const services: Service[] = [
 const Hero = () => {
   return (
     <div className="bg-[#a7a7a7] rounded-t-2xl mt-4 w-full min-h-screen">
-      <div className="flex flex-col px-[2vw] py-[1vh] w-full">
-        <div className="flex flex-col w-full">
-          <div className="flex flex-row justify-between ">
-            <p className="font-lexend text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-[10vw] leading-none">
+      <div className="flex flex-col md:px-[2vw] px-[6vw] py-[2vh] w-full">
+        <div className="flex flex-row w-full justify-between">
+          <motion.div
+            initial={{
+              y: 20,
+            }}
+            whileInView={{
+              y: 0,
+            }}
+            transition={{
+              duration: 0.4,
+              ease: "easeIn",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-row justify-between ">
+            <p className="font-koulen text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-[16vw] md:text-[10vw] leading-none">
               WHAT I DO
             </p>
-            <p className="font-lexend text-xl mt-3 text-neutral-800">
-              {"<Services>"}
-            </p>
-          </div>
-          <div>
-            <svg
-              className="rotate-135"
-              xmlns="http://www.w3.org/2000/svg"
-              width={88}
-              height={88}
-              viewBox="0 0 24 24">
-              <path
-                fill="none"
-                stroke="#000000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="m19 12l-7-7l-7 7m7-7v14"></path>
-            </svg>
-          </div>
+            <div className="self-end lg:-translate-y-2.5 md:-translate-y-1.5 -translate-y-2">
+              <svg
+                className="rotate-135 h-[5.5vw] w-[5.5vw] "
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path
+                  fill="none"
+                  stroke="#404040"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="m19 12l-7-7l-7 7m7-7v14"></path>
+              </svg>
+            </div>
+          </motion.div>
+
+          <p className="font-koulen md:text-xl text-base mt-3 text-neutral-800">
+            {"<Services>"}
+          </p>
         </div>
-        <div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.2 } },
+          }}
+          viewport={{ once: true, amount: 0.4 }}>
           {services.map((service) => (
-            <div key={service.id}>
+            <motion.div
+              variants={{
+                hidden: { y: 20, opacity: 1 },
+                show: { y: 0, opacity: 1 },
+              }}
+              transition={{
+                duration: service.id - 1 + 0.7,
+                ease: "easeInOut",
+              }}
+              key={service.id}>
               <ExpCard
                 id={service.id}
                 title={service.title}
@@ -69,9 +97,9 @@ const Hero = () => {
                 bgc={service.bgc}
                 bgl={service.bgl}
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

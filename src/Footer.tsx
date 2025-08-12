@@ -41,7 +41,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="font-lexend text-neutral-200 flex flex-col w-full justify-center items-center px-[2vw] py-[1vh]">
+    <div className="font-lexend text-neutral-200 flex flex-col w-full justify-center items-center px-[7vw] py-[1vh]">
       <div className="w-full">
         <p className="text-neutral-300">What's Next?</p>
         <p className="text-xl">
@@ -81,11 +81,11 @@ const Footer = () => {
             </button>
           </form> */}
         </div>
-        <div className="w-full bg-neutral-400 p-3 rounded-2xl my-2">
-          <p className="text-2xl text-transparent bg-gradient-to-r from-neutral-700 to-neutral-800 bg-clip-text ">
+        <div className="w-full bg-neutral-400 p-8 rounded-2xl my-2">
+          <p className="text-2xl text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text ">
             Local Time
           </p>
-          <p className="text-[12vw] leading-none text-transparent bg-gradient-to-r from-neutral-700 to-neutral-800 bg-clip-text font-mono">
+          <p className="text-[10vw] leading-none text-transparent bg-gradient-to-r from-neutral-900 to-neutral-800 bg-clip-text font-mono">
             {time}
           </p>
         </div>
