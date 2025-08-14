@@ -5,16 +5,18 @@ import Landing from "./Landing";
 import Projects from "./Projects";
 import About from "./About";
 import Experience from "./Experience";
+import StackedCards from "./components/StackedCards";
 
 function App() {
   return (
     <>
-      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full overflow-x-hidden">
+      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full">
         <Navbar />
         <Landing />
         <Hero />
-        <Projects />
-        <Experience />
+        {/* <StackedCards /> */}
+        {/* <Projects />
+        <Experience /> */}
         <About />
         <Footer />
       </div>

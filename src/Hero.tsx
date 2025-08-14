@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import ExpCard from "./components/ExpCard";
 import type { Service } from "./types";
 import { motion } from "motion/react";
@@ -28,10 +29,15 @@ const services: Service[] = [
 ];
 
 const Hero = () => {
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="bg-[#a7a7a7] rounded-t-2xl mt-4 w-full min-h-screen">
-      <div className="flex flex-col md:px-[2vw] px-[6vw] py-[2vh] w-full">
-        <div className="flex flex-row w-full justify-between">
+      <div className="flex flex-col md:px-[2vw] px-[6vw] py-[2vh] w-full relative">
+        <div
+          ref={headerRef}
+          className="flex flex-row w-full justify-between md:sticky top-5 md:mb-[50vh]">
           <motion.div
             initial={{
               y: 20,
@@ -68,38 +74,42 @@ const Hero = () => {
             {"<Services>"}
           </p>
         </div>
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.2 } },
-          }}
-          viewport={{ once: true, amount: 0.4 }}>
-          {services.map((service) => (
-            <motion.div
-              variants={{
-                hidden: { y: 20, opacity: 1 },
-                show: { y: 0, opacity: 1 },
-              }}
-              transition={{
-                duration: service.id - 1 + 0.7,
-                ease: "easeInOut",
-              }}
-              key={service.id}>
-              <ExpCard
-                id={service.id}
-                title={service.title}
-                description={service.description}
-                st1={service.st1}
-                st2={service.st2}
-                st3={service.st3}
-                bgc={service.bgc}
-                bgl={service.bgl}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className=" min-h-[]  md:my-[20vh]">
+          <motion.div
+            className=""
+            initial="hidden"
+            whileInView="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.2 } },
+            }}
+            viewport={{ once: true, amount: 0.4 }}>
+            {services.map((service) => (
+              <motion.div
+                variants={{
+                  hidden: { y: 20, opacity: 1 },
+                  show: { y: 0, opacity: 1 },
+                }}
+                transition={{
+                  duration: service.id - 1 + 0.7,
+                  ease: "easeInOut",
+                }}
+                className="md:sticky md:top-[25vh]  "
+                key={service.id}>
+                <ExpCard
+                  id={service.id}
+                  title={service.title}
+                  description={service.description}
+                  st1={service.st1}
+                  st2={service.st2}
+                  st3={service.st3}
+                  bgc={service.bgc}
+                  bgl={service.bgl}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
