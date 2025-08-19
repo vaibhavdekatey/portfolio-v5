@@ -16,7 +16,7 @@ const Landing = () => {
         y: 0,
         stagger: 0.05,
         delay: 0.0,
-        duration: 0.2,
+        duration: 0.6,
         opacity: 1,
         ease: "power2.out",
       });
@@ -75,7 +75,7 @@ const Landing = () => {
 
           <div className="flex flex-wrap  w-full">
             <div className="flex justify-between">
-              {"CRAFTING".split("").map((char, index) => (
+              {/* {"CRAFTING".split("").map((char, index) => (
                 <span
                   key={`craft-${index}`}
                   ref={(el) => {
@@ -84,7 +84,15 @@ const Landing = () => {
                   className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
                   {char}
                 </span>
-              ))}
+              ))} */}
+              {/* {"CRAFTING".split("").map((char, index) => ( */}
+                <span
+                  // key={`craft-${index}`}
+                  ref={el => {textRef.current[0] = el}}
+                  className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
+                  CRAFTING
+                </span>
+              {/* ))} */}
             </div>
 
             <span className="block sm:hidden w-full h-0"></span>

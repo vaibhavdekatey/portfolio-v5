@@ -36,21 +36,23 @@ const Hero = () => {
     <div className="bg-[#a7a7a7] rounded-t-2xl mt-4 w-full min-h-screen">
       <div className="flex flex-col md:px-[2vw] px-[6vw] py-[2vh] w-full relative">
         <div
-          ref={headerRef}
-          className="flex flex-row w-full justify-between md:sticky top-5 md:mb-[50vh]">
-          <motion.div
-            initial={{
-              y: 20,
-            }}
-            whileInView={{
-              y: 0,
-            }}
-            transition={{
-              duration: 0.4,
-              ease: "easeIn",
-            }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="flex flex-row justify-between ">
+          // ref={headerRef}
+          className="flex flex-row w-full justify-between "
+        >
+          <div
+            // initial={{
+            //   y: 20,
+            // }}
+            // whileInView={{
+            //   y: 0,
+            // }}
+            // transition={{
+            //   duration: 0.4,
+            //   ease: "easeIn",
+            // }}
+            // viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-row justify-between "
+          >
             <p className="font-koulen text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-[16vw] md:text-[10vw] leading-none">
               WHAT I DO
             </p>
@@ -58,44 +60,48 @@ const Hero = () => {
               <svg
                 className="rotate-135 h-[5.5vw] w-[5.5vw] "
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24">
+                viewBox="0 0 24 24"
+              >
                 <path
                   fill="none"
                   stroke="#404040"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={1}
-                  d="m19 12l-7-7l-7 7m7-7v14"></path>
+                  d="m19 12l-7-7l-7 7m7-7v14"
+                ></path>
               </svg>
             </div>
-          </motion.div>
+          </div>
 
           <p className="font-koulen md:text-xl text-base mt-3 text-neutral-800">
             {"<Services>"}
           </p>
         </div>
-        <div className=" min-h-[]  md:my-[20vh]">
-          <motion.div
+        <div className="">
+          <div
             className=""
-            initial="hidden"
-            whileInView="show"
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.2 } },
-            }}
-            viewport={{ once: true, amount: 0.4 }}>
+            // initial="hidden"
+            // whileInView="show"
+            // variants={{
+            //   hidden: {},
+            //   show: { transition: { staggerChildren: 0.2 } },
+            // }}
+            // viewport={{ once: true, amount: 0.4 }}
+          >
             {services.map((service) => (
-              <motion.div
-                variants={{
-                  hidden: { y: 20, opacity: 1 },
-                  show: { y: 0, opacity: 1 },
-                }}
-                transition={{
-                  duration: service.id - 1 + 0.7,
-                  ease: "easeInOut",
-                }}
-                className="md:sticky md:top-[25vh]  "
-                key={service.id}>
+              <div
+                // variants={{
+                //   hidden: { y: 20, opacity: 1 },
+                //   show: { y: 0, opacity: 1 },
+                // }}
+                // transition={{
+                //   duration: service.id - 1 + 0.7,
+                //   ease: "easeInOut",
+                // }}
+                className=" "
+                key={service.id}
+              >
                 <ExpCard
                   id={service.id}
                   title={service.title}
@@ -106,9 +112,9 @@ const Hero = () => {
                   bgc={service.bgc}
                   bgl={service.bgl}
                 />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
