@@ -23,9 +23,11 @@ export type Tools = {
 export type Project = {
   id: number;
   title: string;
+  desc: string;
   st1: string[];
   st2: string[];
   st3?: string[];
+  ico?: string[];
   imgUrl: string;
   imgUrlHover?: string;
 };

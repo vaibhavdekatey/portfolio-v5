@@ -15,8 +15,8 @@ function App() {
         <Landing />
         <Hero />
         {/* <StackedCards /> */}
-        {/* <Projects />
-        <Experience /> */}
+        <Projects />
+        {/* <Experience /> */}
         <About />
         <Footer />
       </div>

@@ -86,12 +86,15 @@ const Landing = () => {
                 </span>
               ))} */}
               {/* {"CRAFTING".split("").map((char, index) => ( */}
-                <span
-                  // key={`craft-${index}`}
-                  ref={el => {textRef.current[0] = el}}
-                  className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
-                  CRAFTING
-                </span>
+              <span
+                // key={`craft-${index}`}
+                ref={(el) => {
+                  textRef.current[0] = el;
+                }}
+                className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+              >
+                CRAFTING
+              </span>
               {/* ))} */}
             </div>
 
@@ -105,7 +108,8 @@ const Landing = () => {
                   ref={(el) => {
                     textRef.current[index + "CRAFTING".length] = el; // ensures no overlap
                   }}
-                  className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
+                  className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+                >
                   {char}
                 </span>
               ))}
@@ -119,7 +123,8 @@ const Landing = () => {
                 ref={(el) => {
                   lastTextRef.current[index] = el;
                 }}
-                className="  translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none">
+                className="  translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+              >
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}
@@ -130,7 +135,8 @@ const Landing = () => {
       <div className="flex flex-col md:w-[50vw] lg:w-[35vw]  ">
         <p
           ref={desRef}
-          className="bg-gradient-to-l font-extralight from-neutral-300 to-neutral-400 md:text-xl lg:text-2xl text-transparent bg-clip-text select-none mb-8 transform translate-y-full opacity-0 overflow-hidden">
+          className="bg-gradient-to-l font-extralight from-neutral-300 to-neutral-400 md:text-xl lg:text-xl text-transparent bg-clip-text select-none mb-8 transform translate-y-full opacity-0 overflow-hidden"
+        >
           I’m <span className="text-neutral-200">Vaibhav Dekatey</span>,
           passionate about creating intuitive, polished, and memorable digital
           experiences. Eager to explore global opportunities where my work can
@@ -139,21 +145,24 @@ const Landing = () => {
         <a
           ref={btnRef}
           href="#"
-          className=" group rounded-full leading-none border-[1px] text-base md:text-2xl border-neutral-200 hover:text-neutral-200 w-fit md:h-16 h-12 px-6 flex items-center justify-center bg-neutral-200 hover:bg-transparent transition-all ease-in-out">
+          className=" group rounded-full leading-none border-[1px] font-normal text-base md:text-xl border-neutral-200 hover:text-neutral-200 w-fit md:h-16 h-12 px-6 flex items-center justify-center bg-neutral-200 hover:bg-transparent transition-all ease-in-out"
+        >
           Contact
           <svg
-            className="rotate-45 md:h-7 h-5 md:w-7 w-5 md:translate-y-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all ease-in-out"
             xmlns="http://www.w3.org/2000/svg"
-            // width={29}
-            // height={29}
-            viewBox="0 0 24 24">
+            className="md:h-7 h-5 md:w-7 w-4  group-hover:translate-x-1 transition-all ease-in-out"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+          >
             <path
               fill="none"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="m5 12l7-7l7 7m-7 7V5"></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M4 12h16m0 0l-6-6m6 6l-6 6"
+            />
           </svg>
         </a>
       </div>
