@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <div className="bg-[#a7a7a7] rounded-t-2xl mt-4 w-full min-h-screen">
-      <div className="flex flex-col md:px-[2vw] px-[6vw] lg:px-[8vw] py-[5vh]  w-full relative">
+      <div className="flex flex-col md:px-[2vw] px-[6vw]  py-[5vh]  w-full relative">
         <div className="flex flex-row w-full justify-between ">
           <div className="flex flex-row justify-between ">
             <p className="font-koulen text-transparent bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-[16vw] md:text-[10vw] leading-none">

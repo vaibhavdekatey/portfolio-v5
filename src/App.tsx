@@ -6,6 +6,7 @@ import Projects from "./Projects";
 import About from "./About";
 import Experience from "./Experience";
 import StackedCards from "./components/StackedCards";
+import NewExp from "./newExp";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full">
         <Navbar />
         <Landing />
+        <NewExp />
         <Hero />
         {/* <StackedCards /> */}
         <Projects />

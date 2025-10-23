@@ -43,30 +43,50 @@ const projects: Project[] = [
 
 const Projects = () => {
   return (
-    <div className="bg-[#323232] flex flex-col md:px-[2vw] px-[6vw] py-[4vh] lg:px-[8vw] w-full relative">
+    <div className="bg-[#323232] flex flex-col md:px-[2vw] px-[6vw] py-[4vh] w-full relative">
       <div className="flex flex-row w-full justify-between ">
-        <div className="flex flex-col md:flex-row justify-between ">
-          <p className="font-koulen inline-block text-transparent bg-gradient-to-r from-neutral-100 to-neutral-300 bg-clip-text text-[16vw] md:text-[8vw] leading-none">
+        {/* <div className="flex flex-col md:flex-row justify-between ">
+          <p className="font-koulen inline-block text-transparent bg-gradient-to-r from-neutral-100 to-neutral-300 bg-clip-text text-[16vw] md:text-[10vw] leading-none">
             SOME THINGS I'VE BUILT
           </p>
-          <div className=" md:self-end">
+          <div className="self-end lg:-translate-y-2.5 md:-translate-y-1.5 -translate-y-2">
             <svg
-              className=" lg:h-[5.5vw] lg:w-[5.5vw] mt-4 mb-2 sm:mb-0 w-[8vw] h-[8vw] md:w-[8vw] md:h-[8vw]"
+              className="rotate-135 h-[5.5vw] w-[5.5vw] "
               xmlns="http://www.w3.org/2000/svg"
-              width={21}
-              height={21}
-              viewBox="6 6 10 10"
+              viewBox="0 0 24 24"
             >
               <path
                 fill="none"
                 stroke="#fff"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M14.5 7.5v7h-7m-1-8l8 8"
                 strokeWidth={1}
+                d="m19 12l-7-7l-7 7m7-7v14"
               ></path>
             </svg>
           </div>
+        </div> */}
+        <div className="flex justify-center md:justify-start">
+          <p className="font-koulen flex-col text-transparent items-start bg-gradient-to-r from-neutral-100 to-neutral-300 bg-clip-text text-[16vw] md:text-[10vw] leading-none flex flex-wrap">
+            SOME THINGS I'VE <br />
+            <span className="whitespace-nowrap flex items-center">
+              BUILT
+              <svg
+                className="rotate-135 h-[1em] w-[1em] inline-block translate-y-[0.05em] ml-[0.05em]"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="#fff"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="m19 12l-7-7l-7 7m7-7v14"
+                />
+              </svg>
+            </span>
+          </p>
         </div>
 
         <p className="font-koulen md:text-xl text-base mt-3 text-neutral-200">

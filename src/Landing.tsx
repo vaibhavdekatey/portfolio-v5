@@ -91,7 +91,7 @@ const Landing = () => {
                 ref={(el) => {
                   textRef.current[0] = el;
                 }}
-                className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+                className="translate-y-full text-white select-none"
               >
                 CRAFTING
               </span>
@@ -108,7 +108,7 @@ const Landing = () => {
                   ref={(el) => {
                     textRef.current[index + "CRAFTING".length] = el; // ensures no overlap
                   }}
-                  className="translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+                  className="translate-y-full text-white select-none"
                 >
                   {char}
                 </span>
@@ -123,7 +123,7 @@ const Landing = () => {
                 ref={(el) => {
                   lastTextRef.current[index] = el;
                 }}
-                className="  translate-y-full bg-gradient-to-b opacity-0 from-neutral-300 to-neutral-400 text-transparent bg-clip-text select-none"
+                className="  translate-y-full text-white select-none"
               >
                 {char === " " ? "\u00A0" : char}
               </span>
