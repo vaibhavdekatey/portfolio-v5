@@ -1,9 +1,9 @@
-import Footer from "./Footer";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Hero from "./Hero";
-import Landing from "./Landing";
-import Projects from "./Projects";
-import About from "./About";
+import Hero from "./Landing/Hero";
+import Landing from "./Landing/Landing";
+import Projects from "./Landing/Projects";
+import About from "./Landing/About";
 import Experience from "./Experience";
 import StackedCards from "./components/StackedCards";
 import NewExp from "./newExp";
@@ -11,14 +11,14 @@ import NewExp from "./newExp";
 function App() {
   return (
     <>
-      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full">
+      <div className="bg-[#0f0f0f] flex flex-col flex-1 h-full max-w-[100vw]  overflow-x-hidden">
         <Navbar />
         <Landing />
-        <NewExp />
+        {/* <NewExp /> */}
         <Hero />
         {/* <StackedCards /> */}
         <Projects />
-        {/* <Experience /> */}
+        <Experience />
         <About />
         <Footer />
       </div>

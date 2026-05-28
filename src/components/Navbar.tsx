@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { navLink } from "../types";
+import Logo from "../assets/logo.svg?react";
+import { motion } from "motion/react";
+import CustomButton from "./CustomButton";
+import resume from "../assets/vaibhav_dekatey_resume_2026.pdf";
 
 const navLinks: navLink[] = [
   { key: 1, title: "About", url: "#About" },
@@ -9,102 +13,138 @@ const navLinks: navLink[] = [
 ];
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", controlNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
-    <div className="relative min-w-full min-h-full">
-      <nav className=" relative min-w-full px-[6vw] md:px-[2vw]">
+    <motion.nav
+      initial={{ y: "-110%" }}
+      animate={{ y: 0 }}
+      transition={{
+        duration: 0.1,
+        ease: [0, 1, 0, 1],
+      }}
+      className={`fixed left-0 top-0 z-50 px-[6vw] md:px-[12vw] lg:px-[16vw] bg-linear-to-b from-[#0f0f0f] to-black/0 min-w-full h-22 font-lexend font-extralight transition-all ease-in-out duration-500 ${isVisible ? "translate-y-0" : "-translate-y-full"} `}
+    >
+      <div className=" relative min-w-full ">
         <div className="min-w-full">
-          <div className="h-16 flex items-center justify-between">
+          <div className="h-18 flex flex-row items-center justify-between">
             <div>
-              <p className="font-koulen text-xl text-neutral-300 select-none">
-                Web Designer & Developer
-              </p>
+              <Logo className="md:w-14 w-12 h-fit text-white" />
             </div>
-            <div className=" flex-row font-koulen hidden lg:flex text-neutral-200 lg:items-center">
+            <div className="flex-row tracking-wider hidden text-base lg:flex lg:gap-x-4 text-neutral-200 lg:items-center">
               {navLinks.map((navlink) => (
-                <div
+                <a
                   key={navlink.key}
-                  className="sm:mx-1 md:mx-2 mx-3 md:text-xl hover:text-neutral-400 transition-all ease-in-out"
+                  href={navlink.url}
+                  className="flex flex-row sm:mx-1 md:mx-2 mx-3 hover:text-neutral-400 transition-all ease-in-out"
                 >
-                  <a href={navlink.url} className="flex flex-row">
-                    <p className="">{navlink.title}</p>
-                  </a>
-                </div>
+                  <p className="">{navlink.title}</p>
+                </a>
               ))}
-              {/* <button
-              className=" ml-3 sm:mx-1 md:mx-2 mx-3 md:text-sm transition-all ease-in-out border-2 border-transparent bg-neutral-300 text-neutral-800 hover:bg-transparent hover:border-neutral-200 hover:text-neutral-400 rounded-full p-2 px-3"
-              onClick={() => console.log("Resume")}>
-              Resume
-              </button> */}
             </div>
+            <a
+              className=" transition-all md:flex hidden cursor-pointer px-4 ease-in-out border font-light border-transparent bg-neutral-300 text-neutral-800 hover:bg-transparent hover:border-neutral-200 hover:text-neutral-400 rounded-full p-2"
+              href={resume}
+              target="_blank"
+            >
+              Resume
+            </a>
             {/* mobile menu */}
-            <div className="lg:hidden hidden md:visible  text-neutral-200">
+            <div className="lg:hidden md:hidden text-neutral-200 w-fit text-base">
               <button
-                className="font-koulen lg:hidden hidden md:visible  mx-3"
+                className="font-lexend lg:hidden md:hidden flex items-center w-fit  text-white bg-secondary rounded-full p-1 drop-shadow-2xl drop-shadow-[#000000]/70"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                Menu
-              </button>
-              {isMenuOpen && (
-                <div className=" bg-neutral-800 font-koulen p-1 absolute top-16 right-0 z-50">
-                  {navLinks.map((navlink) => (
-                    <div
-                      key={navlink.key}
-                      className="m-3 hover:text-neutral-400 transition-all ease-in-out"
+                {!!isMenuOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="42"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="currentColor"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                     >
-                      <a href={navlink.url}>{navlink.title}</a>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </nav>
-      <div className="fixed bottom-6.5 right-6.5 z-50">
-        <div className="md:hidden text-neutral-200">
-          <button
-            className="font-koulen md:hidden bg-neutral-400 border-[1px] border-neutral-300 flex justify-center items-center rounded-full h-16 w-16 shadow-2xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg
-              className={` transition-all ${
-                isMenuOpen ? "rotate-45" : "rotate-0"
-              }`}
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="#000"
-                d="M12.75 11.25V5a.75.75 0 0 0-1.5 0v6.25H5a.75.75 0 0 0 0 1.5h6.25V19a.76.76 0 0 0 .75.75a.75.75 0 0 0 .75-.75v-6.25H19a.75.75 0 0 0 .75-.75a.76.76 0 0 0-.75-.75Z"
-              />
-            </svg>
-          </button>
-
-          <div
-            className={`absolute bottom-20 right-0 w-48 origin-bottom-right rounded-md bg-neutral-800 p-2 font-koulen shadow-lg ring-1 ring-neutral-700 ring-opacity-5 transition-all duration-300 ease-in-out
-              ${
-                isMenuOpen
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-95 pointer-events-none"
-              }
-      `}
-          >
-            {navLinks.map((navlink) => (
+                      <path d="M5.47 5.47a.75.75 0 0 1 1.06 0l12 12a.75.75 0 1 1-1.06 1.06l-12-12a.75.75 0 0 1 0-1.06" />
+                      <path d="M18.53 5.47a.75.75 0 0 1 0 1.06l-12 12a.75.75 0 0 1-1.06-1.06l12-12a.75.75 0 0 1 1.06 0" />
+                    </g>
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="42"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"
+                    />
+                  </svg>
+                )}
+              </button>
+              {/* {isMenuOpen && ( */}
               <div
-                key={navlink.key}
-                className="m-3 hover:text-neutral-400 transition-all ease-in-out"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={` tracking-wider absolute p-3 top-18 left-0 w-full h-screen z-40 transition-all ease-in duration-150 ${isMenuOpen ? "visible opacity-100 " : "invisible opacity-0 pointer-events-none"}`}
               >
-                <a href={navlink.url}>{navlink.title}</a>
+                <div
+                  className={`bg-neutral-800/10 backdrop-blur-2xl drop-shadow-2xl drop-shadow-[#000000]/70 flex flex-col justify-between items-end text-right px-1 pt-3 w-full h-fit rounded-3xl border border-neutral-700/40 z-40 transition-all ease-in duration-150 ${isMenuOpen ? "visible opacity-100 " : "invisible opacity-0 pointer-events-none"}`}
+                >
+                  <div className="mt-4">
+                    {navLinks.map((nav, i) => (
+                      <div
+                        key={i}
+                        className={`mb-5 mx-3 pr-2 hover:text-neutral-400 text-neutral-100 transition-all ease-in-out ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8 pointer-events-none"}`}
+                        style={{
+                          transitionDelay: "100ms",
+                        }}
+                      >
+                        <a href={`${nav.url}`}>{nav.title}</a>
+                      </div>
+                    ))}
+
+                    <div
+                      style={{
+                        transitionDelay: "100ms",
+                      }}
+                      className="mb-5 mx-3 pr-2 pt-2"
+                    >
+                      <CustomButton
+                        href={resume}
+                        className={`bg-white text-black mr-[-12px] py-3 ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8 pointer-events-none"}`}
+                        title="Resume"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.nav>
   );
 };
 
