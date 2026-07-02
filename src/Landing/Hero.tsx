@@ -33,8 +33,8 @@ const Hero = () => {
       <div className="flex flex-col md:px-[2vw] px-[6vw] py-[5vh] bg-[#a7a7a7] rounded-2xl w-full relative">
         <div className="flex flex-row w-full justify-between ">
           <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex flex-row justify-between "
@@ -51,8 +51,8 @@ const Hero = () => {
         <div className="flex flex-col gap-y-8 mt-4">
           {services.map((service) => (
             <motion.div
-              initial={{ opacity: 0, y: 30, filter: "blur(2px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, transform: "translateY(30px)" }}
+              whileInView={{ opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               className=""

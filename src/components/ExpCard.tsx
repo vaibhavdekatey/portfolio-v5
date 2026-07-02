@@ -1,16 +1,7 @@
 import logo from "../assets/logo.png";
 import type { Service } from "../types";
 
-const ExpCard = ({
-  id,
-  title,
-  description,
-  st1,
-  st2,
-  st3,
-  bgc,
-  bgl,
-}: Service) => {
+const ExpCard = ({ title, description, st1, st2, st3, bgc }: Service) => {
   return (
     <div className="relative">
       <div

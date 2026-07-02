@@ -8,8 +8,8 @@ type WorkCardsProps = {
 const WorkCards = ({ xp, className }: WorkCardsProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, transform: "translateY(30px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
       className={`flex flex-col font-lexend md:text-xl text-sm md:gap-y-8 gap-y-4 font-light w-full p-3 md:p-6 pb-6 md:pb-12  drop-shadow-xl drop-shadow-neutral-800/20 ${className}`}

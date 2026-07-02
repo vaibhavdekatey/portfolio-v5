@@ -68,8 +68,8 @@ const About = () => {
             <div className="w-full flex">
               <div>
                 <motion.div
-                  initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, transform: "translateY(30px)" }}
+                  whileInView={{ opacity: 1, transform: "translateY(0px)" }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                   className="flex flex-col"
@@ -85,8 +85,8 @@ const About = () => {
                   </p>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, transform: "translateY(30px)" }}
+                  whileInView={{ opacity: 1, transform: "translateY(0px)" }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
@@ -114,8 +114,8 @@ const About = () => {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, transform: "translateY(30px)" }}
+              whileInView={{ opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="w-full font-lexend mt-4"
@@ -172,8 +172,8 @@ const About = () => {
       </div>
       <div className="px-[6vw] md:px-[12vw] lg:px-[16vw] py-[8vw] bg-black min-h-[55vh] flex flex-col font-lexend justify-center items-center transition-all">
         <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, transform: "translateY(30px)" }}
+          whileInView={{ opacity: 1, transform: "translateY(0px)" }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="md:text-4xl text-xl text-neutral-200 text-pretty"
@@ -183,8 +183,8 @@ const About = () => {
           solutions.
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, transform: "translateY(30px)" }}
+          whileInView={{ opacity: 1, transform: "translateY(0px)" }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           className="md:text-xl text-base font-extralight text-neutral-400 my-8 text-pretty"

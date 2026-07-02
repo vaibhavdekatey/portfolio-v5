@@ -80,8 +80,8 @@ const Footer = () => {
       <div className="w-full">
         <div className="w-full flex flex-col justify-center items-center h-[50vh] gap-y-8">
           <motion.p
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-neutral-300"
@@ -89,8 +89,8 @@ const Footer = () => {
             What's Next?
           </motion.p>
           <motion.p
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
             className=" font-normal text-[3.2em] md:text-[7.6em] leading-none bg-gradient-to-r from-white to-white/60 text-transparent bg-clip-text"
@@ -98,8 +98,8 @@ const Footer = () => {
             Get In Touch
           </motion.p>
           <motion.p
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-base text-neutral-500 font-light text-pretty md:max-w-1/2 text-center"
@@ -109,8 +109,8 @@ const Footer = () => {
             me.
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.65, ease: "easeOut" }}
             className="transition-all cursor-pointer px-4 ease-in-out border font-light border-transparent bg-neutral-300 text-neutral-800 hover:bg-transparent hover:border-neutral-200 hover:text-neutral-400 rounded-full p-2"

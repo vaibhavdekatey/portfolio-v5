@@ -5,7 +5,6 @@ import tailwindIco from "../assets/icons/tailwind.png";
 import apiIco from "../assets/icons/api.png";
 import ProjectCard from "../components/ProjectCard";
 import { motion } from "motion/react";
-import { div } from "motion/react-m";
 
 const projects: Project[] = [
   {
@@ -45,8 +44,8 @@ const projects: Project[] = [
 const Projects = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, transform: "translateY(30px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       id="Projects"
@@ -67,8 +66,8 @@ const Projects = () => {
       <div>
         {projects.map((project) => (
           <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, transform: "translateY(30px)" }}
+            whileInView={{ opacity: 1, transform: "translateY(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >

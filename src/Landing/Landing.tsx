@@ -5,17 +5,31 @@ const Landing = () => {
   return (
     <div className="font-lexend relative min-h-[94vh] w-full flex flex-col items-start justify-center gap-8 px-[6vw] md:px-[12vw] lg:px-[16vw] ">
       <motion.p
-        initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        initial={{
+          opacity: 0,
+          transform: "translateY(30px)",
+        }}
+        animate={{
+          opacity: 1,
+          transform: "translateY(0px)",
+        }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
         className=" font-normal text-[3.6em] md:text-[7.6em] leading-none bg-gradient-to-r from-white to-white/60 text-transparent bg-clip-text"
       >
         Crafting Experiences <br /> Pixel by pixel.
       </motion.p>
       <motion.span
-        initial={{ opacity: 0, filter: "blur(12px)", y: 30 }}
-        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+        initial={{
+          opacity: 0,
+          transform: "translateY(30px)",
+        }}
+        animate={{
+          opacity: 1,
+          transform: "translateY(0px)",
+        }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.1 }}
+
         className=" text-[1em] md:text-base text-neutral-400 text-pretty md:font-light font-normal md:max-w-2/3 "
       >
         I'm <span className="text-neutral-50 ">Vaibhav Dekatey,</span>
@@ -28,8 +42,14 @@ const Landing = () => {
         make a meaningful impact.
       </motion.span>
       <motion.div
-        initial={{ opacity: 0, filter: "blur(12px)", y: 30 }}
-        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+        initial={{
+          opacity: 0,
+          transform: "translateY(30px)",
+        }}
+        animate={{
+          opacity: 1,
+          transform: "translateY(0px)",
+        }}
         transition={{ duration: 0.8 }}
         className="flex flex-row gap-x-4"
       >
